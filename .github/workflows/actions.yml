@@ -1,9 +1,7 @@
-name: create a random djo/joe keery tweet
+name: random djo/joe keery # name can be anything
 
 on:
   workflow_dispatch:
-  # schedule: # disable cron for github actions as they are slow. https://cron-job.org does a much better job
-  #   - cron: '30 * * * *' # runs every hour at 30 minutes
 
 jobs:
   build:
@@ -16,7 +14,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11.4' # install the python version needed
+          python-version: '3.11.4' # or any other python version
           
       - name: install python packages
         run: |
@@ -29,10 +27,4 @@ jobs:
           CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
-        run: python src/main.py
-         
-      - name: push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main 
+        run: python main.py
