@@ -1,4 +1,4 @@
-name: create a random WhiteRose tweet
+name: create a random djo/joe keery tweet
 
 on:
   workflow_dispatch:
