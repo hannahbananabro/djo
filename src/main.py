@@ -42,7 +42,7 @@ def tweet(media) -> requests.Response:
     client_v2 = auth_v2(consumer_key, consumer_secret,
                         access_token, access_token_secret)
 
-    media_id = api_v1.media_upload(media).media_id
+    media_id = api_v1.media_upload(media).media_id_string
 
     return client_v2.create_tweet(media_ids=[media_id])
 
